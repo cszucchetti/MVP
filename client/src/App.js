@@ -1,16 +1,16 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import HistoryComponent from './components/History';
-import WorkoutTrackerComponent from './components/WorkoutTracker';
+import ExerciseHistory from './components/ExerciseHistory';
+import ExerciseForm from './components/ExerciseForm';
 
 
-  function App() {
+function App() {
 
   let [exercises, setExercises] = useState([]);
   let [workTracker,setworkTracker] =  useState([]);
 
   useEffect(() =>{
-    getworkTracker()
+    getExercises();
 
    //fetch('/exercises')
     // .then(res =>res.json())
@@ -23,32 +23,32 @@ import WorkoutTrackerComponent from './components/WorkoutTracker';
    //  });
   },[]);
 
-  
 
-  const getworkTracker = () => {
-    fetch('/worktracker')
+
+  const getExercises = () => {
+    fetch('/exercises')
      .then(res =>res.json())
-     .then(workTracker =>{
-      setworkTracker(workTracker)
+     .then(data =>{
+      setExercises(data)
     })
     .catch(error =>{
       console.log(error);
 
     });
   }
-  async function addworkTracker(workTracker) {
+  
+  async function addExercise(newExercise) {
      let options = {
        method: 'POST',
        headers: {'Content-Type':'application/json'},
-       body:JSON.stringify(workTracker)
-
+       body:JSON.stringify(newExercise)
      }
      
      try {
-     let response = await fetch('/worktracker',options);
+     let response = await fetch('/exercises',options);
      if (response.ok){
      let data = await response.json();
-     setworkTracker(data)
+     setExercises(data)
      } else{
        console.log(`Server error: ${response.status} ${response.statusText}`)
      }
@@ -61,9 +61,9 @@ import WorkoutTrackerComponent from './components/WorkoutTracker';
     <div id ="App">
      <h1>Workout Tracker</h1>
      <h2>Exercises</h2>
-     <HistoryComponent exercises= {exercises} work_tracker = {workTracker}/>
+     <ExerciseHistory exercises= {exercises} />
      
-     <WorkoutTrackerComponent addworkTracker={addworkTracker} work_tracker = {workTracker}/> 
+     <ExerciseForm submitCb={exercise => addExercise(exercise)} /> 
      
        
     </div>

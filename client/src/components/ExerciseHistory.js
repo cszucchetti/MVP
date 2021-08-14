@@ -1,18 +1,20 @@
 import React from "react";
-import "./History.css"
+// import "./History.css"
 
-function History(props){
+// JIM: Change to ExerciseHistory
+
+function ExerciseHistory(props){
     return (
-     <div className = "exercises">
+     <div className = "ExerciseHistory">
          <ul>
           {  
             props.exercises.map(e =>(
-             <li key ={e.id}>{e.exercise_name}</li>
+             <li key ={e.id}>{e.exercise_name}, {e.repetitions}, {e.exercise_type}</li>
              ))
           }
          </ul> 
 
-          <div className = "work_tracker">
+          {/* <div className = "work_tracker">
               <ul>
                   {
                     props.work_tracker.map (e =>(
@@ -20,7 +22,7 @@ function History(props){
                     ))
                   }              
                </ul>     
-           </div> 
+           </div>  */}
         </div>
 
 
@@ -28,4 +30,4 @@ function History(props){
     )
 }
 
-export default History;
+export default ExerciseHistory;
