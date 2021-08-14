@@ -1,3 +1,9 @@
+#App{
+width:600px;
+margin: 0 auto;
+
+}
+
 .App {
   text-align: center;
 }
@@ -14,14 +20,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #103d97;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(129, 124, 124);
 }
 
 .App-link {

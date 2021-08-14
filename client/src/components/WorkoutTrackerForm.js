@@ -1,11 +1,11 @@
 import React,{useState} from "react";
-// import "./History.css"
+ import "./WorkoutTracker.css";
   
-function ExerciseForm(props){
+function WorkoutTrackerForm(props){
     let [input, setInput] = useState({
       exercise_name:"",
-      repetitions:"",
-      exercise_type:""
+      day:"",
+      hours:""
     });
 
     const handleChange =(event) => {
@@ -32,7 +32,6 @@ function ExerciseForm(props){
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log(input);
-        input.work_tracker_id = props.workoutTracker.id
        
         props.submitCb(input)
       };
@@ -40,7 +39,7 @@ function ExerciseForm(props){
 
     return (
 
-    <div className = "ExerciseForm">   
+    <div className = "WorkoutTrackerForm">   
 
        <form onSubmit={e => handleSubmit(e)}>
              Dashboard:
@@ -50,13 +49,13 @@ function ExerciseForm(props){
              </label>
 
              <label>
-               Reps
-               <input name = "repetitions" onChange = {e => handleChange(e)}/>
+               Hours
+               <input name = "hours" onChange = {e => handleChange(e)}/>
              </label>
 
              <label>
-               Type
-               <input name = "exercise_type" onChange = {e => handleChange(e)}/>
+               Day
+               <input name = "day" onChange = {e => handleChange(e)}/>
              </label>
 
            <button type="submit">Submit</button>
@@ -67,4 +66,4 @@ function ExerciseForm(props){
 
    
 
-    export default ExerciseForm;
+    export default WorkoutTrackerForm;

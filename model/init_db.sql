@@ -10,8 +10,8 @@ CREATE TABLE exercise(
        work_tracker_id INT NOT NULL,
       PRIMARY KEY (id)
      );
-DROP TABLE if exists work_tracker;
-CREATE TABLE work_tracker(
+DROP TABLE if exists workouttracker;
+CREATE TABLE workouttracker(
        id INT NOT NULL AUTO_INCREMENT,
        exercise_name VARCHAR(40) NOT NULL,
        hours VARCHAR(40) NOT NULL,
@@ -23,5 +23,5 @@ INSERT INTO exercise (exercise_name, repetitions,exercise_type,work_tracker_id)
 VALUES ("exercise1","2","cardio",1);
 INSERT INTO exercise (exercise_name, repetitions,exercise_type,work_tracker_id)
 VALUES ("exercise2","3","strength",1);
-INSERT INTO work_tracker (exercise_name,hours, day)
+INSERT INTO workouttracker (exercise_name,hours, day)
 VALUES ("exercise1","2" , "2021-08-11" );
