@@ -5,11 +5,11 @@ import React from "react";
 
 function ExerciseHistory(props){
     return (
-     <div className = "ExerciseHistory">
+     <div class = "History">
          <ul>
           {  
             props.exercises.map(e =>(
-             <li key ={e.id}>{e.exercise_name}, {e.repetitions}, {e.exercise_type}</li>
+             <li key ={e.id}>{e.exercise_name}, {e.repetitions}, {e.exercise_type},{e.workout_id}</li>
              ))
           }
          </ul> 

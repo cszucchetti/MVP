@@ -2,15 +2,15 @@ import './App.css';
 import React, {useEffect, useState} from "react";
 import ExerciseHistory from './components/ExerciseHistory';
 import ExerciseForm from './components/ExerciseForm';
-import WorkoutTrackerHistory from './components/WorkoutTrackerHistory';
-import WorkoutTrackerForm from './components/WorkoutTrackerForm';
+import WorkoutHistory from './components/WorkoutHistory';
+import WorkoutForm from './components/WorkoutForm';
 
 
 function App() {
 
   let [exercises, setExercises] = useState([]);
-  let [workoutTracker,setworkoutTracker] =  useState({});
-  let [workoutTrackerList,setworkoutTrackerList] =  useState({});
+  let [workouts, setWorkouts] =  useState({});
+  //let [workoutHistory,setWorkoutHistory] =  useState({});
 
   useEffect(() =>{
     getExercises();
@@ -63,16 +63,16 @@ function App() {
 
 
   useEffect(() =>{
-    getworkTracker();
+    getWorkouts();
 
   },[]);
 
 
-  const getworkTracker = () =>{
-    fetch('/workouttrackers')
+  const getWorkouts = () =>{
+    fetch('/workouts')
      .then(res =>res.json())
      .then(data =>{
-      setworkoutTrackerList(data)
+      setWorkouts(data)
     })
     .catch(error =>{
       console.log(error);
@@ -88,10 +88,10 @@ function App() {
     }
     
     try {
-    let response = await fetch('/workouttrackers',options);
+    let response = await fetch('/workouts',options);
     if (response.ok){
     let data = await response.json();
-    setworkoutTracker(data)
+    setWorkouts(data)
     } else{
       console.log(`Server error: ${response.status} ${response.statusText}`)
     }
@@ -103,18 +103,26 @@ function App() {
 
 
    return (
+     <container>
     <div id ="App">
-     <h1>Workout Tracker</h1>
-     {workoutTrackerList && workoutTrackerList.length > 0 ?<WorkoutTrackerHistory work_tracker= {workoutTrackerList} /> : null}
-     <WorkoutTrackerForm submitCb={workTracker => addWorkout(workoutTracker)} /> 
+     <h1>Workout Tracker</h1><br></br>
 
-     <h2>Exercises</h2>
-     <ExerciseHistory exercises= {exercises} />
+     <h2>Workout History</h2>
+     {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
      
-     <ExerciseForm workoutTracker={workoutTracker} submitCb={exercise => addExercise(exercise)} /> 
+     <h2>Workout Form</h2>
+     <WorkoutForm submitCb={workouts => addWorkout(workouts)} /> 
+     <br></br>
+     
+     <h2>Exercise History</h2>
+     <ExerciseHistory exercises={exercises} />
+     
+     <h2>Exercise Form</h2>
+     <ExerciseForm submitCb={exercises => addExercise(exercises)} /> 
      
        
     </div>
+    </container>
    );
 
 }

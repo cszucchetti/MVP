@@ -1,9 +1,9 @@
 import React,{useState} from "react";
- import "./WorkoutTracker.css";
+ import "./Form.css";
   
-function WorkoutTrackerForm(props){
+function WorkoutForm(props){
     let [input, setInput] = useState({
-      exercise_name:"",
+      workout_name:"",
       day:"",
       hours:""
     });
@@ -38,32 +38,33 @@ function WorkoutTrackerForm(props){
 
 
     return (
-
-    <div className = "WorkoutTrackerForm">   
+     
+      <item>
+    <div class = "Form">   
 
        <form onSubmit={e => handleSubmit(e)}>
-             Dashboard:
+             <table><tr><td>
              <label>
-               Name
-               <input name = "exercise_name" onChange = {e => handleChange(e)}/>
-             </label>
-
+               Name: </label></td><td>
+               <input name = "workout_name" onChange = {e => handleChange(e)}/>
+              </td></tr><tr><td>
              <label>
-               Hours
+               Hours: 
+               </label></td><td>
                <input name = "hours" onChange = {e => handleChange(e)}/>
-             </label>
-
+               </td></tr><tr><td>
              <label>
-               Day
+               Day: 
+               </label></td><td>
                <input name = "day" onChange = {e => handleChange(e)}/>
-             </label>
-
+               </td></tr></table>
            <button type="submit">Submit</button>
         </form>
 
     </div>
+    </item>
     )};
 
    
 
-    export default WorkoutTrackerForm;
+    export default WorkoutForm;

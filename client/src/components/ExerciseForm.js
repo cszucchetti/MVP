@@ -32,7 +32,7 @@ function ExerciseForm(props){
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log(input);
-        input.work_tracker_id = props.workoutTracker.id
+        // input.exercises = props.exercises.id
        
         props.submitCb(input)
       };
@@ -40,29 +40,41 @@ function ExerciseForm(props){
 
     return (
 
-    <div className = "ExerciseForm">   
+      <item>
+
+    <div class = "Form">   
 
        <form onSubmit={e => handleSubmit(e)}>
-             Dashboard:
+         <table>
+           <tr><td>
              <label>
-               Name
-               <input name = "exercise_name" onChange = {e => handleChange(e)}/>
-             </label>
-
+               Name: 
+               </label>
+             </td><td>
+             <input name="exercise_name" onChange = {e => handleChange(e)}/>
+             </td></tr><tr><td>
              <label>
-               Reps
-               <input name = "repetitions" onChange = {e => handleChange(e)}/>
-             </label>
-
+               Reps: 
+               </label>
+             </td><td>
+             <input name="repetitions" onChange = {e => handleChange(e)}/>
+             </td></tr><tr><td>
              <label>
-               Type
-               <input name = "exercise_type" onChange = {e => handleChange(e)}/>
+               Workout id
              </label>
-
-           <button type="submit">Submit</button>
+              </td><td>
+               <input name="workout_id" onChange = {e => handleChange(e)}/>
+               </td></tr><tr><td>   
+             <label>
+               Type: 
+               </label>
+             </td><td>
+             <input name="exercise_type" onChange = {e => handleChange(e)}/>
+             </td></tr>
+         </table>
         </form>
-
     </div>
+    </item>
     )};
 
    

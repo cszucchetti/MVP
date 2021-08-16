@@ -1,11 +1,23 @@
 #App{
-width:600px;
+width:100%;
 margin: 0 auto;
 
 }
 
 .App {
-  text-align: center;
+  text-align: left;
+  
+}
+
+body{
+  background-color: rgb(129, 127, 127);
+
+}
+
+.h2, h2 {
+  font-size: calc(1.325rem + .9vw);
+  color: #103d97;
+  font-weight:700;
 }
 
 .App-logo {
@@ -41,4 +53,20 @@ margin: 0 auto;
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  width: 48%;
+  height: 100px;
+  margin-bottom: 2%;
+}
+
+.item:nth-child(3n) {
+  width: 100%;
 }

@@ -5,7 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var exercisesRouter = require('./routes/exercises');
-var workouttrackersRouter = require('./routes/worktracker');
+var workoutsRouter = require('./routes/workouts');
 var app = express();
 
 app.use(logger('dev'));
@@ -16,5 +16,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/exercises', exercisesRouter);
-app.use('/workouttrackers',workouttrackersRouter);
+app.use('/workouts',workoutsRouter);
 module.exports = app;

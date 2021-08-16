@@ -6,7 +6,7 @@ var router = express.Router();
 
 // /* GET users listing. */
  router.get('/', function(req, res, next) {
- db("SELECT * FROM workouttracker")//table name
+ db("SELECT * FROM workouts")//table name
     .then(results => {
        res.send(results.data);
      })
@@ -16,11 +16,11 @@ var router = express.Router();
  
  router.post('/', async (req, res) => {
   
-  let { exercise_name, hours, day } = req.body;
-  let sql = `INSERT INTO workout tracker (exercise_name,hours, day) VALUES ('${exercise_name}','${hours}', '${day}')`;
+  let { workout_name, hours, day } = req.body;
+  let sql = `INSERT INTO workouts (workout_name,hours, day) VALUES ('${workout_name}','${hours}', '${day}')`;
  try {
    await db(sql);
-   let results = await db("SELECT * FROM workout trackers");
+   let results = await db("SELECT * FROM workouts");
    let data = results.data;
      res.status(201).send(data);
    } catch (err) {
