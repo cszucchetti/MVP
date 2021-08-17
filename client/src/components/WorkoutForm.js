@@ -40,7 +40,7 @@ function WorkoutForm(props){
     return (
      
       <item>
-    <div class = "Form">   
+    <div className = "Form">   
 
        <form onSubmit={e => handleSubmit(e)}>
              <table><tr><td>
@@ -54,11 +54,12 @@ function WorkoutForm(props){
                <input name = "hours" onChange = {e => handleChange(e)}/>
                </td></tr><tr><td>
              <label>
-               Day: 
+               Date: 
                </label></td><td>
-               <input name = "day" onChange = {e => handleChange(e)}/>
+               <input name = "day" type="date" onChange = {e => handleChange(e)}/>
                </td></tr></table>
            <button type="submit">Submit</button>
+           
         </form>
 
     </div>

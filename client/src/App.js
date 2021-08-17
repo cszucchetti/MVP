@@ -104,22 +104,32 @@ function App() {
 
    return (
      <container>
-    <div id ="App">
-     <h1>Workout Tracker</h1><br></br>
-
-     <h2>Workout History</h2>
-     {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
-     
-     <h2>Workout Form</h2>
-     <WorkoutForm submitCb={workouts => addWorkout(workouts)} /> 
-     <br></br>
-     
-     <h2>Exercise History</h2>
-     <ExerciseHistory exercises={exercises} />
-     
+    <div >
+    
+     <div className="Header">
+      <div className="intro"><h1>Workout Tracker</h1>
+      </div>
+      </div>
+      <div id= "WorkoutGrid">
+        <div>
+        <h2>Workout Form</h2>
+        <WorkoutForm submitCb={workouts => addWorkout(workouts)} /> 
+        </div>
+        
+        <div>
      <h2>Exercise Form</h2>
      <ExerciseForm submitCb={exercises => addExercise(exercises)} /> 
-     
+     </div>
+     <div>
+        <h2>Workout History</h2>
+     {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
+        </div>
+     <div>
+     <h2>Exercise History</h2>
+     <ExerciseHistory exercises={exercises} />
+
+        </div>
+        </div>
        
     </div>
     </container>
