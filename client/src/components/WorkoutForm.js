@@ -1,5 +1,6 @@
 import React,{useState} from "react";
- import "./Form.css";
+//  import "./Form.css";
+
   
 function WorkoutForm(props){
     let [input, setInput] = useState({
@@ -12,27 +13,10 @@ function WorkoutForm(props){
       let { name, value } = event.target;
       setInput(input => ({...input, [name]:value }));
       };
-
-      // const handlehoursChange =(event) => {
-      //   let data = input
-      //   data.hours = event.target.value
-      //   setInput(data)
-
-      //   //setInput(event.target.value)
-      // };
-      // const handleexcerciseChange =(event) => {
-
-      //   let data = input
-      //   data.exercise_name = event.target.value
-      //   setInput(data)
-
-      //  // setInput(event.target.value)
-      // };
            
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log(input);
-       
         props.submitCb(input)
       };
 

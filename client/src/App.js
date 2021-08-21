@@ -4,29 +4,38 @@ import ExerciseHistory from './components/ExerciseHistory';
 import ExerciseForm from './components/ExerciseForm';
 import WorkoutHistory from './components/WorkoutHistory';
 import WorkoutForm from './components/WorkoutForm';
+import NavBar from './components/NavBar';
+import Routes from './components/Routes'; 
 
+
+const exerciseTypesList= [
+  {        
+    calories_set: 45, 
+    exercise_type: "Cardio"
+  
+  },
+  {
+    calories_set: 45, 
+    exercise_type: "Strenght" 
+  },
+
+  {
+    calories_set: 50, 
+    exercise_type: "Other"
+     
+  },
+]
 
 function App() {
 
   let [exercises, setExercises] = useState([]);
   let [workouts, setWorkouts] =  useState({});
-  //let [workoutHistory,setWorkoutHistory] =  useState({});
+  let [exerciseTypes, setExcerciseTypes] = useState (exerciseTypesList)
+
 
   useEffect(() =>{
     getExercises();
-      
-
-   //fetch('/exercises')
-    // .then(res =>res.json())
-    // .then(exercises =>{
-    //  setExercises(exercises)
-   // })
-   // .catch(error =>{
-   //   console.log(error);
-
-   //  });
-  },[]);
-
+  },[])
 
 
   const getExercises = () => {
@@ -41,6 +50,9 @@ function App() {
     });
   }
   
+
+ 
+
   async function addExercise(newExercise) {
      let options = {
        method: 'POST',
@@ -103,35 +115,41 @@ function App() {
 
 
    return (
-     <container>
+     
+    <container>
     <div >
-    
-     <div className="Header">
+    <NavBar />
+    <Routes />
+    {/* <div className="Header">
       <div className="intro"><h1>Workout Tracker</h1>
       </div>
-      </div>
+      </div> */}
+
+
       <div id= "WorkoutGrid">
         <div>
-        <h2>Workout Form</h2>
+        <h2>Add workout</h2>
         <WorkoutForm submitCb={workouts => addWorkout(workouts)} /> 
         </div>
         
         <div>
-     <h2>Exercise Form</h2>
-     <ExerciseForm submitCb={exercises => addExercise(exercises)} /> 
+     <h2>Add exercise</h2>
+     <ExerciseForm exerciseTypes={exerciseTypes } submitCb={exercises => addExercise(exercises)} /> 
      </div>
+
+
      <div>
-        <h2>Workout History</h2>
+        <h2>Workout history</h2>
      {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
         </div>
+     
+     
      <div>
      <h2>Exercise History</h2>
      <ExerciseHistory exercises={exercises} />
-
-        </div>
-        </div>
-       
-    </div>
+     </div>
+     </div>
+       </div>
     </container>
    );
 

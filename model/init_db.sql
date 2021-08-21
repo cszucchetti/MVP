@@ -5,8 +5,8 @@ DROP TABLE if exists exercises;
 CREATE TABLE exercises(
       id INT NOT NULL AUTO_INCREMENT,
       exercise_name VARCHAR(40) NOT NULL,
-       repetitions VARCHAR(40) NOT NULL,
-       exercise_type VARCHAR(40) NOT NULL,
+      sets INT NOT NULL,
+      exercise_type VARCHAR(40) NOT NULL,
        workout_id INT NOT NULL,
       PRIMARY KEY (id)
      );
@@ -15,7 +15,7 @@ DROP TABLE if exists workouts;
 CREATE TABLE workouts(
        id INT NOT NULL AUTO_INCREMENT,
        workout_name VARCHAR(40) NOT NULL,
-       hours VARCHAR(40) NOT NULL,
+       minutes INT NOT NULL,
        day VARCHAR(40) NOT NULL,
       PRIMARY KEY (id)
      );

@@ -1,40 +1,35 @@
 import React,{useState} from "react";
-// import "./History.css"
-  
+
+
+
 function ExerciseForm(props){
-    let [input, setInput] = useState({
+  
+  let [result, setResult] = useState ("")
+
+  let [input, setInput] = useState({
       exercise_name:"",
       repetitions:"",
       exercise_type:""
     });
 
+    function calculateRepetitions() {
+     let reps = Number(input.repetitions)
+     let calories = Number(input.exercise_type.split(" ")[1].replace(/[^\d]/g, ''))
+     
+     if (reps !== undefined && calories !== undefined )
+     setResult(calories*reps);
+    }
+
     const handleChange =(event) => {
       let { name, value } = event.target;
       setInput(input => ({...input, [name]:value }));
       };
-
-      // const handlehoursChange =(event) => {
-      //   let data = input
-      //   data.hours = event.target.value
-      //   setInput(data)
-
-      //   //setInput(event.target.value)
-      // };
-      // const handleexcerciseChange =(event) => {
-
-      //   let data = input
-      //   data.exercise_name = event.target.value
-      //   setInput(data)
-
-      //  // setInput(event.target.value)
-      // };
            
       const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(input);
-        // input.exercises = props.exercises.id
-       
-        props.submitCb(input)
+        // console.log(input);      
+        // props.submitCb(input)
+        calculateRepetitions()
       };
 
 
@@ -46,32 +41,54 @@ function ExerciseForm(props){
 
        <form onSubmit={e => handleSubmit(e)}>
          <table>
+
            <tr><td>
              <label>
-               Name: 
+               Exercise name: 
                </label>
              </td><td>
              <input name="exercise_name" onChange = {e => handleChange(e)}/>
-             </td></tr><tr><td>
+             </td></tr>
+
+             <tr><td>
              <label>
-               Reps: 
+               Exercise type:
+               </label>
+
+             </td><td>
+             <select name="exercise_type"onChange = {e => handleChange(e)}>
+                 {
+                 props.exerciseTypes.map(type => (
+                 <option>{type.exercise_type} ({type.calories_set} calories/set)</option>))
+                 }
+                 </select>
+             </td></tr>
+
+             <tr><td>
+             <label>
+               Number of repetitions: 
                </label>
              </td><td>
              <input name="repetitions" onChange = {e => handleChange(e)}/>
-             </td></tr><tr><td>
+             </td></tr>
+             
+             <tr><td>
              <label>
-               Workout id
+               Calories burned
              </label>
               </td><td>
-               <input name="workout_id" onChange = {e => handleChange(e)}/>
-               </td></tr><tr><td>   
+               <input name="exercise_calories" value={result} onChange = {e => handleChange(e)}/>
+               </td></tr>
+               
+               <tr><td>   
              <label>
-               Type: 
+               Duration (min): 
                </label>
              </td><td>
-             <input name="exercise_type" onChange = {e => handleChange(e)}/>
+             <input name="exercise_duration" onChange = {e => handleChange(e)}/>
              </td></tr>
          </table>
+         <button type="submit">Add exercise</button>
         </form>
     </div>
     </item>
