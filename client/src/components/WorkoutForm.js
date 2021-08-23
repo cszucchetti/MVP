@@ -5,8 +5,10 @@ import React,{useState} from "react";
 function WorkoutForm(props){
     let [input, setInput] = useState({
       workout_name:"",
+      total_calories: "",
+      minutes: "",
       day:"",
-      hours:""
+  
     });
 
     const handleChange =(event) => {
@@ -27,21 +29,35 @@ function WorkoutForm(props){
     <div className = "Form">   
 
        <form onSubmit={e => handleSubmit(e)}>
-             <table><tr><td>
+             <table>
+             
+             <tr><td>
              <label>
                Name: </label></td><td>
                <input name = "workout_name" onChange = {e => handleChange(e)}/>
-              </td></tr><tr><td>
+              </td></tr>
+
+              <tr><td>
              <label>
-               Hours: 
+              Total calories: 
                </label></td><td>
-               <input name = "hours" onChange = {e => handleChange(e)}/>
-               </td></tr><tr><td>
+               <input name = "total_calories" onChange = {e => handleChange(e)}/>
+               </td></tr>
+              
+              <tr><td>
+             <label>
+              Time (min): 
+               </label></td><td>
+               <input name = "minutes" onChange = {e => handleChange(e)}/>
+               </td></tr>
+               
+               <tr><td>
              <label>
                Date: 
                </label></td><td>
                <input name = "day" type="date" onChange = {e => handleChange(e)}/>
                </td></tr></table>
+               
            <button type="submit">Submit</button>
            
         </form>

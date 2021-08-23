@@ -1,12 +1,12 @@
 .History button {
- font-size:60%;
- margin-left: 10px;
+  font-size: 60%;
+  margin-left: 10px;
 }
 
-.History li{
-margin:5px 0;
+.History li {
+  margin: 5px 0;
 }
 
-.History{
-cursor:pointer;
+.History {
+  cursor: pointer;
 }

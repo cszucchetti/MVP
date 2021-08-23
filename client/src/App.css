@@ -1,7 +1,5 @@
-
 .App {
   text-align: left;
-  
 }
 
 h1 {
@@ -9,16 +7,15 @@ h1 {
   text-transform: uppercase;
 }
 
-
-body{
-  background-color:#555355;;
-
+body {
+  background-color: #979197;
 }
 
-.h2, h2 {
-  font-size: calc(1.325rem + .9vw);
-  color: #103d97;
-  font-weight:700;
+.h2,
+h2 {
+  font-size: calc(1.325rem + 0.9vw);
+  color: #08255e;
+  font-weight: 700;
 }
 
 .App-logo {
@@ -73,7 +70,7 @@ body{
 }
 */
 
-#WorkoutGrid{
+#WorkoutGrid {
   padding-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -81,14 +78,14 @@ body{
   width: 800px;
   margin: 0 auto;
 }
-#WorkoutGrid li,p{
-color: white;
-font-size:18px ;
-
+#WorkoutGrid li,
+p {
+  color: white;
+  font-size: 18px;
 }
-.Header{
- background-image: url("https://www.stylegods.com/wp-content/uploads/2017/09/Scientifically-Speaking-Workout.jpg");
-  height: 600px;
+.Header {
+  background-image: url("https://www.stylegods.com/wp-content/uploads/2017/09/Scientifically-Speaking-Workout.jpg");
+  height: 400px;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -96,7 +93,6 @@ font-size:18px ;
   text-align: center;
 }
 .intro h1 {
-color: white;
-font-size: 80px;
-
+  color: white;
+  font-size: 80px;
 }

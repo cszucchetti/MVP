@@ -8,12 +8,12 @@ function ExerciseForm(props){
 
   let [input, setInput] = useState({
       exercise_name:"",
-      repetitions:"",
+      sets:"",
       exercise_type:""
     });
 
     function calculateRepetitions() {
-     let reps = Number(input.repetitions)
+     let reps = Number(input.sets)
      let calories = Number(input.exercise_type.split(" ")[1].replace(/[^\d]/g, ''))
      
      if (reps !== undefined && calories !== undefined )
@@ -28,8 +28,9 @@ function ExerciseForm(props){
       const handleSubmit = (event) => {
         event.preventDefault();
         // console.log(input);      
-        // props.submitCb(input)
-        calculateRepetitions()
+      
+        calculateRepetitions()  
+        props.submitCb(input)
       };
 
 
@@ -69,7 +70,7 @@ function ExerciseForm(props){
                Number of repetitions: 
                </label>
              </td><td>
-             <input name="repetitions" onChange = {e => handleChange(e)}/>
+             <input name="sets" onChange = {e => handleChange(e)}/>
              </td></tr>
              
              <tr><td>

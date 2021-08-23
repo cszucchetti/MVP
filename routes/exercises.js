@@ -17,10 +17,10 @@ router.get('/', function(req, res, next) {
 // JIM: Save exercise properties
 
 router.post('/', async (req, res) => {
-  let { exercise_name, repetitions, exercise_type, workout_id} = req.body;
+  let { exercise_name,  exercise_type, sets,  exercise_duration} = req.body;
   let sql = `
-    INSERT INTO exercises (exercise_name, repetitions, exercise_type) 
-    VALUES ('${exercise_name}','${repetitions}', '${exercise_type}','${workout_id}')`;
+    INSERT INTO exercises (exercise_name, exercise_type, sets, exercise_duration) 
+    VALUES ('${exercise_name}', '${exercise_type}', ${sets}, '${exercise_duration}')`;
     // NOTE: The workout_id of 1 is temporary
   try {
     await db(sql);

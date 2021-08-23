@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-import ExerciseHistory from './components/ExerciseHistory';
+// import ExerciseHistory from './views/ExerciseHistory';
 import ExerciseForm from './components/ExerciseForm';
 import WorkoutHistory from './components/WorkoutHistory';
 import WorkoutForm from './components/WorkoutForm';
@@ -119,7 +119,7 @@ function App() {
     <container>
     <div >
     <NavBar />
-    <Routes />
+    <Routes exercises={exercises} />
     {/* <div className="Header">
       <div className="intro"><h1>Workout Tracker</h1>
       </div>
@@ -143,11 +143,8 @@ function App() {
      {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
         </div>
      
-     
-     <div>
-     <h2>Exercise History</h2>
-     <ExerciseHistory exercises={exercises} />
-     </div>
+  
+   
      </div>
        </div>
     </container>
