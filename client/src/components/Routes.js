@@ -2,9 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Error404View from '../views/Error404View';
 import HomeView from '../views/HomeView';
-import ExerciseHistory from '../views/ExerciseHistory';
-import WorkoutHistory from './WorkoutHistory';
-
+import FormsView from '../views/FormsView';
+import HistoryView from '../views/HistoryView';
 
 
 function Routes(props) {
@@ -14,15 +13,16 @@ function Routes(props) {
             <Route path="/" exact>
                 <HomeView />
             </Route>
-
-            <Route path="/exercisehistory" exact>
-                <ExerciseHistory exercises={props.exercises} />
+            
+            
+            <Route path="/forms" exact>
+                <FormsView exerciseTypes={props.exerciseTypes} addExerciseCb={props.addExerciseCb} addWorkoutCb={props.addWorkoutCb} />
             </Route>
-
-            <Route path="/workouthistory" exact>
-                <WorkoutHistory workouts={props.workouts} />
+            
+            
+            <Route path="/history" exact>
+                <HistoryView exercises={props.exercises} workouts={props.workouts}/>
             </Route>
-
 
             {/* None of the routes matched: Error 404! */}
             <Error404View />

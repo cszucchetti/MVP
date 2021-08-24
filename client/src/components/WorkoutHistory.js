@@ -1,5 +1,5 @@
 import React from "react";
-import "./History.css"
+// import "./History.css"
 
 
 function WorkoutHistory(props){

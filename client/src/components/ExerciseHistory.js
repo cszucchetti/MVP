@@ -1,7 +1,8 @@
 import React from "react";
-// import "./History.css"
+import "./History.css"
 
-// JIM: Change to ExerciseHistory
+
+
 
 function ExerciseHistory(props){
     return (

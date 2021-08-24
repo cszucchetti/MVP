@@ -19,7 +19,7 @@ function WorkoutForm(props){
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log(input);
-        props.submitCb(input)
+        props.addWorkoutCb(input)
       };
 
 

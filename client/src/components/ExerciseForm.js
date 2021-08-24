@@ -30,7 +30,7 @@ function ExerciseForm(props){
         // console.log(input);      
       
         calculateRepetitions()  
-        props.submitCb(input)
+        props.addExerciseCb(input)
       };
 
 
@@ -59,7 +59,7 @@ function ExerciseForm(props){
              </td><td>
              <select name="exercise_type"onChange = {e => handleChange(e)}>
                  {
-                 props.exerciseTypes.map(type => (
+                props.exerciseTypes && props.exerciseTypes.map(type => (
                  <option>{type.exercise_type} ({type.calories_set} calories/set)</option>))
                  }
                  </select>

@@ -8,8 +8,8 @@ function Navbar() {
         <nav className="Navbar">
             <ul>
                 <li><NavLink to="/" exact>Home</NavLink></li>
-                <li><NavLink to="/exercisehistory">Exercise History</NavLink></li>
-                {/* <li><NavLink to="/workout_history">Workout history</NavLink></li> */}
+                <li><NavLink to="/history">My workouts</NavLink></li>
+                <li><NavLink to="/forms">Add a new Workout</NavLink></li>
             </ul>
         </nav>
     );

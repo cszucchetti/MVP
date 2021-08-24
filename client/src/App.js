@@ -1,11 +1,8 @@
 import './App.css';
 import React, {useEffect, useState} from "react";
-// import ExerciseHistory from './views/ExerciseHistory';
-import ExerciseForm from './components/ExerciseForm';
-import WorkoutHistory from './components/WorkoutHistory';
-import WorkoutForm from './components/WorkoutForm';
 import NavBar from './components/NavBar';
 import Routes from './components/Routes'; 
+
 
 
 const exerciseTypesList= [
@@ -21,7 +18,7 @@ const exerciseTypesList= [
 
   {
     calories_set: 50, 
-    exercise_type: "Other"
+    exercise_type: "GAP"
      
   },
 ]
@@ -116,38 +113,18 @@ function App() {
 
    return (
      
-    <container>
+ 
     <div >
     <NavBar />
-    <Routes exercises={exercises} />
-    {/* <div className="Header">
-      <div className="intro"><h1>Workout Tracker</h1>
-      </div>
-      </div> */}
+    <Routes 
+    exercises={exercises} 
+    workouts={workouts} 
+    exerciseTypes={exerciseTypes}
+    addExerciseCb={exercises => addExercise(exercises)}
+    addWorkoutCb={workouts => addWorkout(workouts)}
+    />
+</div>
 
-
-      <div id= "WorkoutGrid">
-        <div>
-        <h2>Add workout</h2>
-        <WorkoutForm submitCb={workouts => addWorkout(workouts)} /> 
-        </div>
-        
-        <div>
-     <h2>Add exercise</h2>
-     <ExerciseForm exerciseTypes={exerciseTypes } submitCb={exercises => addExercise(exercises)} /> 
-     </div>
-
-
-     <div>
-        <h2>Workout history</h2>
-     {workouts && workouts.length > 0 ? <WorkoutHistory workouts={workouts} /> : null}
-        </div>
-     
-  
-   
-     </div>
-       </div>
-    </container>
    );
 
 }
